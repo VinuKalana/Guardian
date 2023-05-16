@@ -11,4 +11,7 @@ Anti-phishing browser extensions developed to detect and prevent phishing attack
 1.	Identify the types of phishing attacks that anti-phishing frameworks are most effective in detecting and preventing.
 2.	Determine the factors that affect the effectiveness of anti-phishing frameworks in detecting and preventing phishing attacks.
 3.	Evaluate the performance of anti-phishing browser frameworks in detecting and preventing different types of phishing attacks, such as email phishing, spear phishing, smishing, vishing, clone phishing, and whaling.
-4.	Identify the strengths and weaknesses of existing anti-phishing browser frameworks and develop a effective browser extension
+4.	Identify the strengths and weaknesses of existing anti-phishing browser frameworks and develop a effective browser extension,
+
+## Methodology
+
