@@ -14,4 +14,12 @@ Anti-phishing browser extensions developed to detect and prevent phishing attack
 4.	Identify the strengths and weaknesses of existing anti-phishing browser frameworks and develop a effective browser extension,
 
 ## Methodology
+This project is divide into 3 sprints
+1. Data collection and Preprocessing
+2. Training Machine Learning Model
+3. Develop Web Extension that can utilize Trained ML model
+
+### Sprint 01: Data Collection and Preprocessing
+
+
 
