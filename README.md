@@ -21,5 +21,9 @@ This project is divide into 3 sprints
 
 ### Sprint 01: Data Collection and Preprocessing
 
+### Sprint 02:
+
+## Sprint 03:
+
 
 
