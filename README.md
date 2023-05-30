@@ -17,13 +17,13 @@ Anti-phishing browser extensions developed to detect and prevent phishing attack
 This project is divide into 3 sprints
 1. Data collection and Preprocessing
 2. Training Machine Learning Model
-3. Develop Web Extension that can utilize Trained ML model
+3. Develop PoC that can utilize Trained ML model
 
 ### Sprint 01: Data Collection and Preprocessing
 
 ### Sprint 02: Training Machine Learning Model
 
-### Sprint 03: Develop Web Extension that can utilize Trained ML model
+### Sprint 03: Develop PoC that can utilize Trained ML model
 
 
 
