@@ -21,9 +21,9 @@ This project is divide into 3 sprints
 
 ### Sprint 01: Data Collection and Preprocessing
 
-### Sprint 02:
+### Sprint 02: Training Machine Learning Model
 
-## Sprint 03:
+### Sprint 03: Develop Web Extension that can utilize Trained ML model
 
 
 
