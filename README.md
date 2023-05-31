@@ -44,7 +44,7 @@ Many features can be extracted that can be consider as address bar base features
 - Using URL Shortening Services “TinyURL”:
 - Prefix or Suffix "-" in Domain: 
 
-### 3.1.1. Domain of the URL
+##### 3.1.1. Domain of the URL
 
 Here, we are just extracting the domain present in the URL. This feature doesn't have much significance in the training. May even be dropped while training the model.
 
@@ -55,7 +55,7 @@ Here, we are just extracting the domain present in the URL. This feature doesn't
   features['Domain'] = domain
 ```
 
-### 3.1.2. IP Address in the URL
+##### 3.1.2. IP Address in the URL
 
 Checks for the presence of IP address in the URL. URLs may have IP address instead of domain name. If an IP address is used as an alternative of the domain name in the URL, we can be sure that someone is trying to steal personal information with this URL.
 
@@ -66,7 +66,7 @@ If the domain part of URL has IP address, the value assigned to this feature is 
 features['IP Address'] = int(bool(re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', url)))
 ```
 
-### 3.1.3. "@" Symbol in URL
+##### 3.1.3. "@" Symbol in URL
 
 Checks for the presence of '@' symbol in the URL. Using “@” symbol in the URL leads the browser to ignore everything preceding the “@” symbol and the real address often follows the “@” symbol.
 
@@ -77,7 +77,7 @@ If the URL has '@' symbol, the value assigned to this feature is 1 (phishing) or
 features['@ Symbol'] = int('@' in domain)
 ```
 
-### 3.1.4. Length of URL
+##### 3.1.4. Length of URL
 
 Computes the length of the URL. Phishers can use long URL to hide the doubtful part in the address bar. In this project, if the length of the URL is greater than or equal 62 characters then the URL classified as phishing otherwise legitimate.
 
@@ -88,7 +88,7 @@ If the length of URL >= 62 , the value assigned to this feature is 1 (phishing) 
 features['URL Length'] = 1 if len(url) >= 62 else 0
 ```
 
-### 3.1.5. Depth of URL
+##### 3.1.5. Depth of URL
 
 Computes the depth of the URL. This feature calculates the number of sub pages in the given URL based on the '/'.
 The value of feature is a numerical based on the URL.
@@ -98,7 +98,7 @@ The value of feature is a numerical based on the URL.
 features['URL Depth'] = url.count('/')
 ```
 
-### 3.1.6. Redirection "//" in URL
+##### 3.1.6. Redirection "//" in URL
 
 Checks the presence of "//" in the URL. The existence of “//” within the URL path means that the user will be redirected to another website. The location of the “//” in URL is computed. We find that if the URL starts with “HTTP”, that means the “//” should appear in the sixth position. However, if the URL employs “HTTPS” then the “//” should appear in seventh position.
 
@@ -109,7 +109,7 @@ If the "//" is anywhere in the URL apart from after the protocol, thee value ass
 features['Redirection'] = int('//' in parsed_url.path)
 ```
 
-### 3.1.7. "http/https" in Domain name
+##### 3.1.7. "http/https" in Domain name
 
 Checks for the presence of "http/https" in the domain part of the URL. The phishers may add the “HTTPS” token to the domain part of a URL in order to trick users.
 
@@ -120,7 +120,7 @@ If the URL has "http/https" in the domain part, the value assigned to this featu
 features['HTTP/HTTPS in Domain'] = int('http' in domain or 'https' in domain)
 ```
 
-### 3.1.8. Using URL Shortening Services “TinyURL”
+##### 3.1.8. Using URL Shortening Services “TinyURL”
 
 URL shortening is a method on the “World Wide Web” in which a URL may be made considerably smaller in length and still lead to the required webpage. This is accomplished by means of an “HTTP Redirect” on a domain name that is short, which links to the webpage that has a long URL.
 
@@ -143,7 +143,7 @@ r"tr\.im|link\.zip\.net"
 features['Shortening Service'] = int(bool(re.search(shortening_services, domain)))
 ```
 
-### 3.1.9. Prefix or Suffix "-" in Domain
+##### 3.1.9. Prefix or Suffix "-" in Domain
 
 Checking the presence of '-' in the domain part of URL. The dash symbol is rarely used in legitimate URLs. Phishers tend to add prefixes or suffixes separated by (-) to the domain name so that users feel that they are dealing with a legitimate webpage.
 
@@ -154,7 +154,7 @@ If the URL has '-' symbol in the domain part of the URL, the value assigned to t
 features['Prefix/Suffix - in Domain'] = int('-' in domain)
 ```
 
-## 3.2. Domain Based Features:
+##### 3.2. Domain Based Features:
 
 Many features can be extracted that come under this category. Out of them, below mentioned were considered for this project.
 
@@ -163,7 +163,7 @@ Many features can be extracted that come under this category. Out of them, below
 * Age of Domain
 * End Period of Domain
 
-### 3.2.1. DNS Record
+##### 3.2.1. DNS Record
 
 For phishing websites, either the claimed identity is not recognized by the WHOIS database or no records founded for the hostname. If the DNS record is empty or not found then, the value assigned to this feature is 1 (phishing) or else 0 (legitimate).
 
@@ -176,7 +176,7 @@ except:
     features['DNS Record'] = 1
 ```
 
-### 3.2.2. Web Traffic
+##### 3.2.2. Web Traffic
 
 This feature measures the popularity of the website by determining the number of visitors and the number of pages they visit. However, since phishing websites live for a short period of time, they may not be recognized by the Alexa database (Alexa the Web Information Company., 1996). By reviewing our dataset, we find that in worst scenarios, legitimate websites ranked among the top 100,000. Furthermore, if the domain has no traffic or is not recognized by the Alexa database, it is classified as “Phishing”.
 
@@ -198,7 +198,7 @@ except:
   features['Web Traffic'] = 1
 ```
 
-### 3.2.3. Age of Domain
+##### 3.2.3. Age of Domain
 
 This feature can be extracted from WHOIS database. Most phishing websites live for a short period of time. The minimum age of the legitimate domain is considered to be 12 months for this project. Age here is nothing but different between creation and expiration time.
 
@@ -217,7 +217,7 @@ except:
     features['Domain Age'] = 1
 ```
 
-### 3.2.4. End Period of Domain
+##### 3.2.4. End Period of Domain
 
 This feature can be extracted from WHOIS database. For this feature, the remaining domain time is calculated by finding the different between expiration time & current time. The end period considered for the legitimate domain is 6 months or less for this project.
 
@@ -236,7 +236,7 @@ except:
     features['End Period of Domain'] = 1
 ```
 
-## 3.3. HTML and JavaScript based Features
+##### 3.3. HTML and JavaScript based Features
 
 Many features can be extracted that come under this category. Out of them, below mentioned were considered for this project.
 * IFrame Redirection
@@ -244,7 +244,7 @@ Many features can be extracted that come under this category. Out of them, below
 * Disabling Right Click
 * Website Forwarding
 
-### 3.3.1. IFrame Redirection
+##### 3.3.1. IFrame Redirection
 
 Iframe is an HTML tag used to display an additional webpage into one that is currently shown. Phishers can make use of the “iframe” tag and make it invisible i.e. without frame borders. In this regard, phishers make use of the “frameBorder” attribute which causes the browser to render a visual delineation.
 
@@ -262,7 +262,7 @@ except:
     features['IFrame Redirection'] = 1
 ```
 
-### 3.3.2. Status Bar Customization
+##### 3.3.2. Status Bar Customization
 
 Phishers may use JavaScript to show a fake URL in the status bar to users. To extract this feature, we must dig-out the webpage source code, particularly the “onMouseOver” event, and check if it makes any changes on the status bar
 
@@ -281,7 +281,7 @@ except:
     features['Status Bar Customization'] = 1
 ```
 
-### 3.3.3. Disabling Right Click
+##### 3.3.3. Disabling Right Click
 
 Phishers use JavaScript to disable the right-click function, so that users cannot view and save the webpage source code. This feature is treated exactly as “Using onMouseOver to hide the Link”. Nonetheless, for this feature, we will search for event “event.button\==2” in the webpage source code and check if the right click is disabled.
 
@@ -295,7 +295,7 @@ except:
     features['Disabling Right Click'] = 1
 ```
 
-### 3.3.4. Website Forwarding
+##### 3.3.4. Website Forwarding
 
 The fine line that distinguishes phishing websites from legitimate ones is how many times a website has been redirected. In our dataset, we find that legitimate websites have been redirected one time max. On the other hand, phishing websites containing this feature have been redirected at least 4 times.
 
@@ -309,12 +309,35 @@ try:
 except:
     features['Website Forwarding'] = 1
 ```
+### Sprint 02: Preproccessing
 
-### Sprint 02: Training Machine Learning Model
+For this activity we are following set of activities as follows.
+1.	Import libraries required for preprocessing.
+2.	Load dataset final URL dataset
+3.	Be familiar with dataset.
+4.	Dataset visualization
+5.	Describe the dataset.
+6.	Drop unnecessary fields.
+7.	Check for null values in the dataset.
+8.	Shuffle the dataset randomly because, labels are in order.
+9.	Split the dataset as 4:1 (train: test)
 
-### Sprint 03: Develop PoC that can utilize Trained ML model
+
+### Sprint 03: Training Machine Learning Model
+
+From the nature of this task, it is supervised learning task comes under classification. Because trained model require to predict legitimate(0) and phishing (1) and dataset is trained under following models
+1.	Decision Tree
+2.	Random Forest
+3.	Multilayer Perceptions
+4.	XGBoost
+5.	Autoencoder Neural Network
+6.	Support Vector Machine
+More details of training models will be included following GitHub repository.
 
 
+### Sprint 04: Develop PoC that can utilize Trained ML model
+
+Future Development
 
 
 
